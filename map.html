@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>地図表示</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    <style>
+        #map { 
+            height: 600px; 
+            width: 100%; 
+            margin-top: 10px;
+        }
+        .coordinates {
+            margin: 10px 0;
+            padding: 5px;
+            background: #f8f8f8;
+        }
+        .search-box {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+        .search-box input[type="text"],
+        .search-box input[type="number"] {
+            width: 150px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+        .search-box button {
+            padding: 5px 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="coordinates">
+        <span>現在の位置 - </span>
+        緯度: <span id="currentLat">35.6586</span>
+        経度: <span id="currentLng">139.7454</span>
+    </div>
+
+    <div class="search-box">
+        <div style="margin-bottom: 10px;">
+            <input type="text" id="address" placeholder="住所を入力">
+            <button onclick="searchAddress()">住所で検索</button>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <input type="number" id="searchLat" step="0.000001" placeholder="緯度">
+            <input type="number" id="searchLng" step="0.000001" placeholder="経度">
+            <button onclick="searchCoordinates()">座標で検索</button>
+        </div>
+        <div>
+            <label for="radius">半径(m):</label>
+            <input type="number" id="radius" value="500">
+            <button onclick="updateCircle()">円を更新</button>
+        </div>
+        <p>※マーカーをドラッグまたは地図をクリックして位置を変更できます</p>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+    <script src="map.js"></script>
+</body>
+</html>
