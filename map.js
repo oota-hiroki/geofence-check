@@ -98,7 +98,7 @@ async function searchAddress() {
             
             // マーカーと地図を移動
             marker.setLatLng([lat, lng]);
-            map.setView([lat, lng], 14);
+            map.setView([lat, lng], 20);
             updateCircle();
         } else {
             alert('住所が見つかりませんでした。');
@@ -126,7 +126,7 @@ function searchCoordinates() {
 
     // マーカーと地図を移動
     marker.setLatLng([lat, lng]);
-    map.setView([lat, lng], 24);
+    map.setView([lat, lng], 20);
     updateCircle();
 }
 
