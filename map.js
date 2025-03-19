@@ -9,7 +9,7 @@ window.onload = function() {
     const initialLng = 139.7454;
     
     // 地図を初期化
-    map = L.map('map').setView([initialLat, initialLng], 14);
+    map = L.map('map').setView([initialLat, initialLng], 20);
     
     // 通常の地図レイヤー
     const streets = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -23,7 +23,7 @@ window.onload = function() {
 
     // Google Satelliteレイヤー
     const googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-        maxZoom: 20,
+        maxZoom: 24,
         subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
         attribution: '© Google'
     });
@@ -126,7 +126,7 @@ function searchCoordinates() {
 
     // マーカーと地図を移動
     marker.setLatLng([lat, lng]);
-    map.setView([lat, lng], 14);
+    map.setView([lat, lng], 24);
     updateCircle();
 }
 
